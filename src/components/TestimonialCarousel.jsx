@@ -79,7 +79,7 @@ export default function TestimonialCarousel() {
 
     const variants = {
         enter: (direction) => ({
-            x: direction > 0 ? 100 : -100,
+            x: direction > 0 ? "100%" : "-100%",
             opacity: 0,
             scale: 0.95
         }),
@@ -91,7 +91,7 @@ export default function TestimonialCarousel() {
         },
         exit: (direction) => ({
             zIndex: 0,
-            x: direction < 0 ? 100 : -100,
+            x: direction < 0 ? "100%" : "-100%",
             opacity: 0,
             scale: 0.95
         })
@@ -123,7 +123,7 @@ export default function TestimonialCarousel() {
             </div>
 
             <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
-                <AnimatePresence initial={false} custom={direction} mode="wait">
+                <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                         key={currentIndex}
                         custom={direction}
@@ -189,8 +189,8 @@ export default function TestimonialCarousel() {
                         key={index}
                         onClick={() => handleDotClick(index)}
                         className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                ? 'bg-orange-500 w-8'
-                                : 'bg-stone-600 hover:bg-stone-400'
+                            ? 'bg-orange-500 w-8'
+                            : 'bg-stone-600 hover:bg-stone-400'
                             }`}
                         aria-label={`Go to testimonial ${index + 1}`}
                     />
