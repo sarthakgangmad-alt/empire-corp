@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, ShieldCheck, Ruler, Clock, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Ruler, Clock, Users, Quote, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ImageSequencePlayer from '../components/ImageSequencePlayer';
 import { LiquidMetalButton } from '../components/ui/LiquidMetal';
@@ -306,6 +306,84 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="py-24 bg-stone-950 relative overflow-hidden">
+                {/* Decorative background */}
+                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-orange-900/20 to-transparent" />
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+                        <div>
+                            <span className="text-orange-500 font-bold uppercase tracking-wider text-sm">Client Stories</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">Trusted by Industry Leaders</h2>
+                        </div>
+                        {/* Optional 5-star summary */}
+                        <div className="hidden md:flex flex-col items-end">
+                            <div className="flex text-orange-500 mb-2">
+                                <Star fill="#f97316" size={20} />
+                                <Star fill="#f97316" size={20} />
+                                <Star fill="#f97316" size={20} />
+                                <Star fill="#f97316" size={20} />
+                                <Star fill="#f97316" size={20} />
+                            </div>
+                            <p className="text-stone-400 font-medium">Top Rated Construction Firm</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {[
+                            {
+                                name: "Jonathan Sterling",
+                                role: "CEO, Sterling Tech",
+                                type: "Commercial HQ Build",
+                                text: "Empire transformed our vision of a collaborative workspace into reality. Their ability to deliver complex structural changes while maintaining our timeline was impressive."
+                            },
+                            {
+                                name: "Sarah & James Miller",
+                                role: "Homeowners",
+                                type: "Luxury Custom Home",
+                                text: "Building a custom home is stressful, but Empire made it seamless. The project manager kept us informed every step of the way. The finish quality is simply perfection."
+                            },
+                            {
+                                name: "Elena Rossi",
+                                role: "Director, Heritage Properties",
+                                type: "Historical Restoration",
+                                text: "Restoring a century-old building requires expertise that few possess. Empire's team navigated the heritage permits and structural challenges with absolute mastery."
+                            },
+                            {
+                                name: "David Kovač",
+                                role: "Founder, Kovač Retail",
+                                type: "Retail Expansion",
+                                text: "We needed our flagship store renovated in record time for the holiday season. Empire didn't just meet the deadline—they finished early without cutting a single corner."
+                            }
+                        ].map((review, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-stone-900 border border-stone-800 p-8 rounded-2xl relative group hover:border-orange-500/30 transition-colors"
+                            >
+                                <Quote className="text-orange-600 mb-6 opacity-50" size={40} />
+                                <p className="text-stone-300 text-lg mb-8 leading-relaxed italic">"{review.text}"</p>
+                                <div className="flex items-center justify-between border-t border-stone-800 pt-6">
+                                    <div>
+                                        <h4 className="text-white font-bold">{review.name}</h4>
+                                        <p className="text-stone-500 text-sm">{review.role}</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <span className="text-orange-500 text-xs font-bold uppercase tracking-wider">{review.type}</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
