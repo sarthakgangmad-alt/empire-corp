@@ -336,31 +336,42 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
-                                name: "Jonathan Sterling",
-                                role: "CEO, Sterling Tech",
-                                type: "Commercial HQ Build",
-                                text: "Empire transformed our vision of a collaborative workspace into reality. Their ability to deliver complex structural changes while maintaining our timeline was impressive."
+                                rating: "5.0",
+                                title: "Absolutely Exceptional!",
+                                text: "I’m beyond impressed with the level of professionalism and results delivered. Empire Corp’s team truly understands what clients need and goes the extra mile at every step. The entire experience was seamless and impactful — highly recommended!",
+                                name: "Richard H.",
+                                role: "Senior Partner, Horizon Group"
                             },
                             {
-                                name: "Sarah & James Miller",
-                                role: "Homeowners",
-                                type: "Luxury Custom Home",
-                                text: "Building a custom home is stressful, but Empire made it seamless. The project manager kept us informed every step of the way. The finish quality is simply perfection."
+                                rating: "4.9",
+                                title: "Transformed Our Expectations!",
+                                text: "Working with Empire Corp exceeded all our expectations. Their insight, strategic execution, and unwavering support made the project run smoothly and efficiently. If you want quality, vision, and reliability — this is where you get it.",
+                                name: "Amanda L.",
+                                role: "Director of Operations"
                             },
                             {
-                                name: "Elena Rossi",
-                                role: "Director, Heritage Properties",
-                                type: "Historical Restoration",
-                                text: "Restoring a century-old building requires expertise that few possess. Empire's team navigated the heritage permits and structural challenges with absolute mastery."
+                                rating: "5.0",
+                                title: "Unmatched Quality & Customer Focus",
+                                text: "Empire Corp’s commitment to excellence is obvious from day one. Their attention to detail, clear communication, and proactive problem-solving truly set them apart. We saw real value and measurable impact.",
+                                name: "Marcus T.",
+                                role: "Property Developer"
                             },
                             {
-                                name: "David Kovač",
-                                role: "Founder, Kovač Retail",
-                                type: "Retail Expansion",
-                                text: "We needed our flagship store renovated in record time for the holiday season. Empire didn't just meet the deadline—they finished early without cutting a single corner."
+                                rating: "4.8",
+                                title: "Highly Professional & Results-Driven",
+                                text: "From concept to completion, Empire Corp delivered on every promise. The team is proactive, knowledgeable, and always available to guide us. We’re extremely satisfied with the outcome.",
+                                name: "Jennifer W.",
+                                role: "Project Lead"
+                            },
+                            {
+                                rating: "4.9",
+                                title: "Elevated Our Business Growth!",
+                                text: "The expertise and support we received were outstanding. Empire Corp helped us refine our strategy, optimize execution, and scale faster than expected. One of the best decisions we’ve made.",
+                                name: "Robert C.",
+                                role: "CEO, C-Corp"
                             }
                         ].map((review, i) => (
                             <motion.div
@@ -369,18 +380,24 @@ export default function Home() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-stone-900 border border-stone-800 p-8 rounded-2xl relative group hover:border-orange-500/30 transition-colors"
+                                className="bg-stone-900 border border-stone-800 p-8 rounded-2xl relative group hover:border-orange-500/30 transition-colors flex flex-col justify-between"
                             >
-                                <Quote className="text-orange-600 mb-6 opacity-50" size={40} />
-                                <p className="text-stone-300 text-lg mb-8 leading-relaxed italic">"{review.text}"</p>
-                                <div className="flex items-center justify-between border-t border-stone-800 pt-6">
+                                <div>
+                                    <div className="flex items-center space-x-1 mb-4">
+                                        {[...Array(5)].map((_, starIndex) => (
+                                            <Star key={starIndex} fill="#f97316" className="text-orange-500 w-4 h-4" />
+                                        ))}
+                                        <span className="ml-2 text-stone-400 text-sm font-bold">{review.rating}</span>
+                                    </div>
+                                    <h3 className="text-white text-xl font-bold mb-3">{review.title}</h3>
+                                    <p className="text-stone-300 text-base mb-6 leading-relaxed">"{review.text}"</p>
+                                </div>
+                                <div className="flex items-center justify-between border-t border-stone-800 pt-6 mt-auto">
                                     <div>
                                         <h4 className="text-white font-bold">{review.name}</h4>
                                         <p className="text-stone-500 text-sm">{review.role}</p>
                                     </div>
-                                    <div className="text-right">
-                                        <span className="text-orange-500 text-xs font-bold uppercase tracking-wider">{review.type}</span>
-                                    </div>
+                                    <Quote className="text-stone-700 opacity-50 group-hover:text-orange-900 transition-colors" size={24} />
                                 </div>
                             </motion.div>
                         ))}
