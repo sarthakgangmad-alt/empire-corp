@@ -90,14 +90,9 @@ export default function Home() {
             {/* Services Preview Section */}
             <section className="py-24 bg-white relative z-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 px-2">
-                        <div>
-                            <span className="text-orange-600 font-bold uppercase tracking-wider text-sm">What We Build</span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2">Our Expertise</h2>
-                        </div>
-                        <Link to="/services" className="hidden md:flex items-center text-stone-900 font-bold hover:text-orange-600 transition-colors uppercase tracking-wide group">
-                            Explore All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                    <div className="text-center mb-16 px-2">
+                        <span className="text-orange-600 font-bold uppercase tracking-wider text-sm">What We Build</span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2">Our Expertise</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -130,9 +125,9 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <div className="mt-12 text-center md:hidden">
-                        <Link to="/services" className="inline-flex items-center text-stone-900 font-bold hover:text-orange-600 uppercase tracking-wide">
-                            Explore All Services <ArrowRight className="ml-2 w-5 h-5" />
+                    <div className="mt-12 text-center">
+                        <Link to="/services" className="inline-flex items-center text-stone-900 font-bold hover:text-orange-600 uppercase tracking-wide group">
+                            Explore All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>
