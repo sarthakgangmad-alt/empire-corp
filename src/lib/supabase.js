@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://hzrpwquivfermoztgzfb.supabase.co"
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6cnB3cXVpdmZlcm1venRnemZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzNzk5MzEsImV4cCI6MjA4NTk1NTkzMX0.kVBvFXtSJMX8UdGollrDqm4Tj6fOschSx7XpoRTfHPs"
 
 // Fail-safe initialization to prevent white screen on deployment if env vars are missing
 let supabaseInstance = null;
